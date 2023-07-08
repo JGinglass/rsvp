@@ -1,0 +1,22 @@
+<DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="pagina da criação do evento">
+        <meta name="keywords" content="cadastro, login, eventos">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+        <title>Confirmados</title>
+    </head>
+    <body class="corpo">
+        <center>
+        <h2>Lista de presença:<h2><br>
+        <table class="tabela" border="4px">
+            <tr><td width="50%">Nome</td><td width="30%">Email</td><td width="20%">Telefone</td></tr>
+            {% for item in lista %}
+            <tr><td>{{item[1]}}</td><td>{{item[2]}}</td><td>{{item[3]}}</td></tr>
+            {% endfor %}
+        </table>
+        </center>
+    </body>
+    </html>

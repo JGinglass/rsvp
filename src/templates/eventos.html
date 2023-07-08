@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description"
+        content="A plataforma é feita para a criação de eventos, podendo a partir disso, organizar melhor uma lista de presença dos convidados em cada evento cadastrado.">
+    <meta name="keywords" content="pagina do joao, login, eventos">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <title> Cadastro de eventos</title>
+</head>
+
+<body class="corpo">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="navbar-brand" href="https://www.instagram.com/ginglasss/">
+                    <img src="{{ url_for('static', filename='imagens/insta.png') }}" width="30" height="30"
+                        class="d-inline-block align-top" alt="">
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="navbar-brand" href="https://www.instagram.com/ginglasss/">
+
+                    <img src="{{ url_for('static', filename='imagens/wpp.png') }}" width="30" height="30"
+                        class="d-inline-block align-top" alt="">
+
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="navbar-brand" href="https://www.instagram.com/ginglasss/">
+
+                    <img src="{{ url_for('static', filename='imagens/face.png') }}" width="30" height="30"
+                        class="d-inline-block align-top" alt="">
+
+                </a>
+            </li>
+        </ul>
+
+
+
+    </nav>
+    <div class="principal">
+
+        <div class="blockleft">
+            <p class="para1">Bem-vindo ao Crieventos!</p>
+            <p class="para2">Cadastre ao lado o seu evento</p>
+            <img src="{{ url_for('static', filename='imagens/festa.svg') }}" alt="festa">
+        </div>
+        <div class="blockright">
+            <div class="card-cadastro">
+                <form method="POST" action="/criaeventos">
+                    <div class="entrada">
+                        <label for="Nomedoevento">Evento:</label>
+                        <input class="campotexto" type="text" name="nomeEvento" required
+                            placeholder="Nome do evento. Ex: 15 anos da Ana beatriz!" >
+                    </div>
+                    <div class="entrada">
+                        <label for="Data">Data/Hora:</label>
+                        <input class="campotexto" type="datetime-local" name="dataEvento" required
+                            placeholder="Data e a hora do evento" >
+                    </div>
+                    <div class="entrada">
+                        <label for="Endereco">Endereço:</label>
+                        <input class="campotexto" type="text" name="endEvento" required
+                            placeholder="Endereço do evento.">
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-success">Success</button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

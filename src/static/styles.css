@@ -1,0 +1,164 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+
+body {
+    font-family: 'Noto Sans', sans-serif;
+
+}
+
+.corpo{
+    background: rgb(28, 1, 66);
+    color: rgb(3, 233, 11);
+    letter-spacing: 1px;
+}
+
+
+.campotexto{
+    
+    border-radius: 10px;
+    padding: 4px 5px;
+    width: 260px;
+    margin-top: 2px;
+
+}
+
+.campotexto:hover{
+    background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%);
+    outline-width: 2px;
+    outline: none;
+
+}
+
+.btn-success{
+    text-align: center;
+    width: 260px;
+    height: 34px;
+    margin-top: 13px;
+    padding: 4px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-style: italic;
+    text-transform: uppercase;
+    outline-width: 4px;
+    outline-color: white;
+
+}
+
+.sucesso:hover{
+    background-color: rgb(96, 232, 96);
+}
+
+.navbar-brand{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.para1{
+    font-size: 17pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    
+}
+
+.para2{
+    font-size: 17pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    
+}
+
+.card-cadastro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(61, 2, 142);
+    padding: 30px 35px;
+    border-radius: 10px;
+    width: 75%;
+    height: 70%;
+
+    box-shadow: 10px 10px 40px  rgb(133, 68, 217);    
+}
+
+
+.entrada{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+
+.blockleft{
+    width: 50vw;
+    height: 100vh;
+    margin: 0;
+    padding: 15px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column; 
+}
+
+.blockright{
+    width: 50vw;
+    height: 100vh;
+    margin: 0;
+    padding: 15px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column; 
+    position: relative;
+}
+
+.blockright::before{
+    content: "";
+    width: 10px;
+    height: 100%;
+    background: white;
+    position: absolute;
+    left: -15px;
+    
+}
+
+.principal{
+    display: flex;
+    justify-content: center;
+
+}
+
+.confirm{
+    width: 400px;
+    height: 300px;
+    justify-content: center;
+    display: flex;
+}
+
+.convidado{
+    letter-spacing: 5px;
+    font-size: 2em;
+    font-weight: 100;
+    text-decoration: underline;
+    padding: 80px;
+
+}
+
+.preencher{
+    letter-spacing: 3px;
+    font-size: 2em;
+    font-weight: 200;
+    width: 50%;
+
+}
+
+.tabela{
+    border-radius: 10px;
+    border: 2px;
+    border-color: black;
+}

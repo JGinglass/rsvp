@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="pagina da criação do evento">
+    <meta name="keywords" content="cadastro, login, eventos">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <title>Link do evento cadastrado </title>
+</head>
+
+    <body class="corpo">
+        <div class="principal">
+            <div class="blockleft">
+                <p class="para1">O evento {{nome2}} foi cadastrado!</p>
+                <p class="para2">Segue abaixo o link para enviar aos convidados.</p>
+                <a href="/confirmapresenca/{{idi2}}">Clique aqui!</a>
+                <img class="confirm" src="{{ url_for('static', filename='imagens/confirma.svg') }}" alt="">
+            </div>
+            <div class="blockright">
+                <p class="para1">Clique <a href="/listapresenca/{{idi2}}">aqui</a> para acompanhar a lista de presença!</p>
+                <img class="confirm" src="{{ url_for('static', filename='imagens/lista.svg') }}" alt="">
+            </div>   
+        </div>
+
+
+    </body>
+
+</html>
