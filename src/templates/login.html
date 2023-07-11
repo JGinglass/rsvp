@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles2.css') }}">
+    <title>Tela de Login</title>
+
+</head>
+<body>
+    
+    <div class="tela-login">
+
+        <h1>LOGIN</h1>
+        <form action="login" method="post">
+            <input type="text" name="nome" placeholder="Digite o seu usuário">
+            <br><br>
+            <input type="password" name="senha" placeholder="Digite sua senha">
+            <br><br>
+            <button type="submit" value="entrar">ENTRAR</button>
+        </form>    
+    </div>
+    
+</body>
+</html>
