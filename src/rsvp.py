@@ -4,50 +4,53 @@ import uuid
 
 app = Flask (__name__)
 
-def escrever_no_csv(dados):
-    with open('eventos.csv', 'a', newline="") as arqEvento_csv:
-        escritor_csv = csv.writer(arqEvento_csv)
-        escritor_csv.writerow(dados)
-    arqEvento_csv.close()
+def addEvent(dataContent):
+    with open('eventos.csv', 'a', newline="") as csvFileEvent:
+        eventWriter = csv.writer(csvFileEvent)
+        eventWriter.writerow(dataContent)
+    csvFileEvent.close()
 
-def gravar_convidado(dados):
-    with open('convidados.csv', 'a', newline="") as arqEvento_csv:
-        escritor_csv = csv.writer(arqEvento_csv)
-        escritor_csv.writerow(dados)
-    arqEvento_csv.close()
+def addGuest(dataContent):
+    with open('convidados.csv', 'a', newline="") as csvFileGuest:
+        gestWriter = csv.writer(csvFileGuest)
+        gestWriter.writerow(dataContent)
+    csvFileGuest.close()
 
 @app.route("/")
 def homepage():
-    return "<html><h2>Oi Joao</h2></html>"
+    return render_template("home.html")
 
 
-@app.route("/eventos")
+@app.route("/cerimonial/event")
 def eventos():
-    return render_template("eventos.html")
+    return render_template("createEvent.html")
                            
-@app.route("/criaeventos", methods=['POST'])
-def criaevento():
-    nome = request.form["nomeEvento"]
-    data = request.form["dataEvento"]
-    ender = request.form["endEvento"]
-    idi = str(uuid.uuid4())
-    escrever_no_csv([idi, nome, data, ender])
-    return render_template("link2.html", nome2=nome, data2=data, ender2=ender, idi2=idi)
+@app.route("/cerimonial/createEvent", methods=['POST'])
+def criateEvent():
+    #Get vars posted from html form
+    eventName = request.form["nomeEvento"]
+    eventDate = request.form["dataEvento"]
+    eventLocate = request.form["endEvento"]
 
-@app.route("/confirmados/<idEvento>", methods=['POST'])
-def confirmados(idEvento):
-    nome = request.form["nomeConvidado"]
-    tel = request.form["telefoneConvidado"]
-    email = request.form["emailConvidado"]
-    idi = str(uuid.uuid4())
-    gravar_convidado([idi, nome, tel, email, idEvento])
-    return render_template("link4.html", nome2=nome)
+    #Id Evento
+    idEvent = str(uuid.uuid4())
+    addEvent([idEvent, eventName, eventDate, eventLocate])
+    return render_template("eventCreated.html", eventName=eventName, eventDate=eventDate, eventLocate=eventLocate, idEvent=idEvent)
 
-@app.route("/confirmapresenca/<idi>")
+@app.route("/guest/confirm/<idEvent>", methods=['POST'])
+def confirmPresense(idEvent):
+    guestName = request.form["nomeConvidado"]
+    guestPhone = request.form["telefoneConvidado"]
+    guestEmail = request.form["emailConvidado"]
+    idGuest = str(uuid.uuid4())
+    addGuest([idGuest, guestName, guestPhone, guestEmail, idEvent])
+    return render_template("confirmed.html", guestName=guestName)
+
+@app.route("/guest/confirm/<idi>")
 def confirmaepresenca(idi):
-    return render_template("link3.html", idi2=idi)
+    return render_template("confirmForm.html", idi2=idi)
 
-@app.route("/listapresenca/<idEvento>")
+@app.route("/cerimonial/listConfirmed/<idEvento>")
 def listapresenca(idEvento):
     with open('convidados.csv', 'r', newline="") as arqEvento_csv:
         convidadoReader = csv.reader(arqEvento_csv)
@@ -56,9 +59,9 @@ def listapresenca(idEvento):
             if linha[4] == idEvento:
                 retorno.append(linha)
     arqEvento_csv.close()            
-    return render_template("link5.html", lista = retorno)
+    return render_template("listConfirmed.html", lista = retorno)
 
 
                        
 if __name__ == "__main__":
-    app.run(debug=True, use_reloader=False)
+    app.run(debug=True, use_reloader=True)

@@ -20,11 +20,11 @@
             <div class="blockleft">
                 <p class="para1">O evento {{nome2}} foi cadastrado!</p>
                 <p class="para2">Segue abaixo o link para enviar aos convidados.</p>
-                <a href="/confirmapresenca/{{idi2}}">Clique aqui!</a>
+                <a href="/guest/confirm/{{idEvent}}">Clique aqui!</a>
                 <img class="confirm" src="{{ url_for('static', filename='imagens/confirma.svg') }}" alt="">
             </div>
             <div class="blockright">
-                <p class="para1">Clique <a href="/listapresenca/{{idi2}}">aqui</a> para acompanhar a lista de presença!</p>
+                <p class="para1">Clique <a href="/cerimonial/listConfirmed/{{idEvent}}">aqui</a> para acompanhar a lista de presença!</p>
                 <img class="confirm" src="{{ url_for('static', filename='imagens/lista.svg') }}" alt="">
             </div>   
         </div>

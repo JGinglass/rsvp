@@ -1,0 +1,95 @@
+{% include "header.html" %}
+<body>
+
+    <div id="corpo">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="navbar-brand" href="https://www.instagram.com/ginglasss/">
+                        <img src="{{ url_for('static', filename='imagens/insta.png') }}" width="30" height="30"
+                            class="d-inline-block align-top" alt="">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="navbar-brand" href="https://www.instagram.com/ginglasss/">
+    
+                        <img src="{{ url_for('static', filename='imagens/wpp.png') }}" width="30" height="30"
+                            class="d-inline-block align-top" alt="">
+    
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="navbar-brand" href="https://www.instagram.com/ginglasss/">
+    
+                        <img src="{{ url_for('static', filename='imagens/face.png') }}" width="30" height="30"
+                            class="d-inline-block align-top" alt="">
+    
+                    </a>
+                </li>
+            </ul>
+    
+        </nav>
+    </div>
+    <div class="deck-container">
+
+        <!-- Begin slides. Just make elements with a class of slide. -->
+    
+        <section class="slide">
+          <h1>Tá gastando tempo demais organizando listas de presença dos seus eventos?</h1>
+        </section>
+    
+        <section class="slide">
+          <h1>Não quer esquecer ninguém?</h1>
+        </section>
+    
+        <section class="slide">
+          <h1>Assine</h1>
+        </section>
+    
+        <!-- End slides. -->
+
+
+         <!-- deck.navigation snippet -->
+    <div aria-role="navigation">
+        <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+        <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+      </div>
+  
+      <!-- deck.status snippet -->
+      <p class="deck-status" aria-role="status">
+        <span class="deck-status-current"></span>
+        /
+        <span class="deck-status-total"></span>
+      </p>
+  
+      <!-- deck.goto snippet -->
+      <form action="." method="get" class="goto-form">
+        <label for="goto-slide">Go to slide:</label>
+        <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+        <datalist id="goto-datalist"></datalist>
+        <input type="submit" value="Go">
+      </form>
+  
+      <!-- End extension snippets. -->
+    </div>
+  
+  <!-- Required JS files. -->
+  <script src="{{ url_for('static', filename='deck.js/jquery.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='deck.js/core/deck.core.js')}}"></script>
+  
+  <!-- Extension JS files. Add or remove as needed. -->
+  <script src="{{ url_for('static', filename='deck.js/extensions/menu/deck.menu.js')}}"></script>
+  <script src="{{ url_for('static', filename='deck.js/extensions/goto/deck.goto.js')}}"></script>
+  <script src="{{ url_for('static', filename='deck.js/extensions/status/deck.status.js')}}"></script>
+  <script src="{{ url_for('static', filename='deck.js/extensions/navigation/deck.navigation.js')}}"></script>
+  <script src="{{ url_for('static', filename='deck.js/extensions/scale/deck.scale.js')}}"></script>
+  
+  <!-- Initialize the deck. You can put this in an external file if desired. -->
+  <script>
+    $(function() {
+      $.deck('.slide');
+    });
+  </script>
+
+</body>
+{% include "footer.html" %}
